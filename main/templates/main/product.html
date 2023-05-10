@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %} <!-- Выводит базовый html (верхняя, базовая часть сайта) -->
+
+{% block content %}  <!-- ШАБЛОННЫЙ ТЕГ for content -->
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Название</td>
+                        <td>{{ objects.name }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ objects.image }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'main:products_list' %}" class="btn btn-primary"><< Назад</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}   <!-- закрытие ШАБЛОННЫЙ ТЕГ for content -->
