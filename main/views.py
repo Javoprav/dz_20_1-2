@@ -6,7 +6,7 @@ from main.models import Product
 def index(request):
     # ШАБЛОННЫЕ ПЕРЕМЕННЫЕ
     context = {
-        'object_list': Product.objects.all()[:5],   # выведение контекста студентов из модели по ключу object_list
+        'object_list': Product.objects.all()[:3],   # выведение контекста студентов из модели по ключу object_list
         'title': 'Главная'
     }
     return render(request, 'main/index.html', context)
@@ -25,7 +25,8 @@ def product(request, pk):
     product_item = Product.objects.get(pk=pk)
     context = {
         'objects': product_item,
-        'title': product_item
+        'title': product_item,
+        'mediapath': '/media/',
     }
     return render(request, 'main/product.html', context)
 

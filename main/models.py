@@ -13,7 +13,7 @@ class Product(models.Model):
     last_modified_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата последнего изменения')
 
     def __str__(self):
-        return f'{self.name}, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'
+        return f'{self.name}' #, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'
 
     class Meta:
         verbose_name = 'товар'
@@ -26,7 +26,7 @@ class Category(models.Model):
     description = models.TextField(max_length=15000, verbose_name='Описание', **NULLABLE)
 
     def __str__(self):
-        return f'{self.name}, {self.description}'
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'категория'
