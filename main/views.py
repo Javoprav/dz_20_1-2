@@ -26,7 +26,6 @@ def product(request, pk):
     context = {
         'objects': product_item,
         'title': product_item,
-        'mediapath': '/media/',
     }
     return render(request, 'main/product.html', context)
 
