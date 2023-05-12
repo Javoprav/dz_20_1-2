@@ -15,7 +15,7 @@ def index(request):
 def products(request):
     # ШАБЛОННЫЕ ПЕРЕМЕННЫЕ
     context = {
-        'object_list': Product.objects.all(),   # выведение контекста студентов из модели по ключу object_list
+        'object_list': Product.objects.all(),
         'title': 'Все товары'
     }
     return render(request, 'main/products.html', context)
