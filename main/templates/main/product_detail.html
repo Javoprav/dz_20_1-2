@@ -5,30 +5,30 @@
         <div class="card">
             <div class="card-body">
                 <table class="table">
-                    <img src="{% mediapath objects.image %}" alt="Картинка"  width="200" height="200"/>
+                    <img src="{% mediapath object.image %}" alt="Картинка"  width="200" height="200"/>
                     <tr>
                         <td>Название</td>
-                        <td>{{ objects.name }} </td>
+                        <td>{{ object.name }} </td>
                     </tr>
                     <tr>
                         <td>Описание</td>
-                        <td>{{ objects.description }}</td>
+                        <td>{{ object.description }}</td>
                     </tr>
                     <tr>
                         <td>Категория</td>
-                        <td>{{ objects.category }}</td>
+                        <td>{{ object.category }}</td>
                     </tr>
                     <tr>
                         <td>Цена:</td>
-                        <td>{{ objects.price_for_pickup }}</td>
+                        <td>{{ object.price_for_pickup }}</td>
                     </tr>
                     <tr>
                         <td>Дата добавления:</td>
-                        <td>{{ objects.date_of_creation }}</td>
+                        <td>{{ object.date_of_creation }}</td>
                     </tr>
                     <tr>
                         <td>Дата обновления:</td>
-                        <td>{{ objects.last_modified_date }}</td>
+                        <td>{{ object.last_modified_date }}</td>
                     </tr>
                 </table>
             </div>
