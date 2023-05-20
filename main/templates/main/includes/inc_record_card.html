@@ -5,10 +5,11 @@
             <img src="{% mediapath object.preview %}" alt="Картинка"  width="200" height="200"/>
             <h2>{{ object.record_title|title }} </h2>
             <h6> {{ object.content|slice:":100" }}</h6>  <!--Фильтр slice получает часть списка.-->
-            <h4> {{ object.date_of_creation|title }}</h4>
-            <h4> {{ object.sign_of_publication|title }}</h4>
+
             <!-- —ШАБЛОННЫЕ ПЕРЕМЕННЫЕ В заголовок выводятся имена из цикла по ключу -->
             <p><a class="btn btn-secondary" href="{% url 'main:record_detail' object.slug %}">Посмотреть &raquo;</a></p>
+            <p><a class="btn btn-warning" href="{% url 'main:record_update' object.pk %}">Изменить &raquo;</a></p>
+            <p><a class="btn btn-danger" href="{% url 'main:record_delete' object.pk %}">Удалить &raquo;</a></p>
         </div>
     </div>
 </div><!-- /.col-lg-4 -->

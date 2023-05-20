@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from main.models import Product, Record
 
@@ -21,12 +21,17 @@ class ProductListView(ListView):  # выведение контекста сту
     }
 
 
-class RecordListView(ListView):  # выведение контекста студентов из модели по ключу object_list
+class RecordListView(ListView):  # выведение контекста записей из модели по ключу object_list
     model = Record
     extra_context = {
         'object_list': Record.objects.all(),
         'title': 'Все записи'  # дополнение к статической информации
     }
+
+    def get_queryset(self):  # выводит только активные записи
+        queryset = super().get_queryset()
+        queryset = queryset.filter(sign_of_publication=True)
+        return queryset
 
 
 class RecordDetailView(DetailView):
@@ -39,6 +44,23 @@ class RecordDetailView(DetailView):
         increase = get_object_or_404(Record, pk=obj.pk)  # увеличение количества просмотров
         increase.increase_views()
         return context_data
+
+
+class RecordCreateView(CreateView):
+    model = Record
+    fields = ('record_title', 'slug', 'content', 'preview')
+    success_url = reverse_lazy('main:records_list')
+
+
+class RecordUpdateView(UpdateView):
+    model = Record
+    fields = ('record_title', 'slug', 'content', 'preview')
+    success_url = reverse_lazy('main:records_list')
+
+
+class RecordDeleteView(DeleteView):
+    model = Record
+    success_url = reverse_lazy('main:records_list')
 
 
 class ProductDetailView(DetailView):
