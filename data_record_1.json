@@ -1,0 +1,67 @@
+[
+  {
+    "model": "main.record",
+    "pk": 7,
+    "fields": {
+      "record_title": "Slug",
+      "slug": "Slug",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/dfhdfgh_uUCVxP4.jpg",
+      "date_of_creation": "2023-05-20T14:43:31.800Z",
+      "sign_of_publication": false,
+      "views": 9
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 8,
+    "fields": {
+      "record_title": "Not Slug",
+      "slug": "Not_Slug",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/thhhtdg_FH7vYOw.jpg",
+      "date_of_creation": "2023-05-20T14:43:13.857Z",
+      "sign_of_publication": false,
+      "views": 6
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 9,
+    "fields": {
+      "record_title": "new",
+      "slug": "new",
+      "content": "Slug - ўхыютхъюяюэ Єэ√щ URL, яЁхфёЄрты хЄ ёюсющ эрсюЁ ёшьтюыют, ъюЄюЁ√х ьюцэю яЁюўшЄрЄ№ ъръ ёт чэ√х ёыютр шыш яЁхфыюцхэш  т рфЁхёэющ ёЄЁюъх, ъюЄюЁ√щ ёыєцшЄ єэшъры№э√ь шфхэЄшЇшърЄюЁюь чряшёш т Ёрьърї юфэющ ьюфхыш ш ёюёЄюшЄ шч схчюярёэ√ї фы  юсЁрсюЄъш чряЁюёр ёшьтюыют:\r\n\r\n0-9\r\na-z\r\n (юс√ўэю т эшцэхь ЁхушёЄЁх)\r\nёшьтюы \r\n-",
+      "preview": "image/one_proxima_4287_enlh4_knwvZbF.jpg",
+      "date_of_creation": "2023-05-20T12:51:40.848Z",
+      "sign_of_publication": true,
+      "views": 2
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 12,
+    "fields": {
+      "record_title": "new_4",
+      "slug": "new_4",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/one_proxima_4287_enlh4_pT3FxvY.jpg",
+      "date_of_creation": "2023-05-20T14:43:18.435Z",
+      "sign_of_publication": true,
+      "views": 5
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 13,
+    "fields": {
+      "record_title": "new_5",
+      "slug": "new_5",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of.",
+      "preview": "image/dfhdfgh_LqAmTcd.jpg",
+      "date_of_creation": "2023-05-20T15:50:20.997Z",
+      "sign_of_publication": true,
+      "views": 7
+    }
+  }
+]
