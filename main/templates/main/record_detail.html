@@ -22,6 +22,11 @@
                         <td>признак публикации:</td>
                         <td>{{ object.sign_of_publication }}</td>
                     </tr>
+                    <tr>
+                        <td>Количество просмотров:</td>
+                        <td>{{ object.views }}</td>
+                    </tr>
+
                 </table>
             </div>
             <a href="{% url 'main:records_list' %}" class="btn btn-primary"><< Назад</a>

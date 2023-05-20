@@ -15,7 +15,7 @@ class Product(models.Model):
     last_modified_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата последнего изменения')
 
     def __str__(self):
-        return f'{self.name}' #, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'
+        return f'{self.name}'  #, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'
 
     class Meta:
         verbose_name = 'товар'
@@ -43,7 +43,7 @@ class Record(models.Model):
     preview = models.ImageField(upload_to='image/', verbose_name='Изображение', **NULLABLE)
     date_of_creation = models.DateTimeField(auto_now=True, verbose_name='Дата создания')
     sign_of_publication = models.BooleanField(default=True, verbose_name='активный')
-    # number_of_views =
+    views = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.record_title}'
@@ -55,3 +55,7 @@ class Record(models.Model):
         verbose_name = 'запись'
         verbose_name_plural = 'записи'
         ordering = ('record_title', 'slug', 'date_of_creation', 'sign_of_publication')
+
+    def increase_views(self):    # увеличение количества просмотров
+        self.views += 1
+        self.save()

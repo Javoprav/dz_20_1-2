@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView
 
@@ -35,6 +35,9 @@ class RecordDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         context_data['title'] = self.get_object()
+        obj = self.get_object()
+        increase = get_object_or_404(Record, pk=obj.pk)  # увеличение количества просмотров
+        increase.increase_views()
         return context_data
 
 
