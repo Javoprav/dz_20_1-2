@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -55,7 +55,9 @@ class RecordCreateView(CreateView):
 class RecordUpdateView(UpdateView):
     model = Record
     fields = ('record_title', 'slug', 'content', 'preview')
-    success_url = reverse_lazy('main:records_list')
+
+    def get_success_url(self):
+        return reverse('main:record_detail', args=[str(self.object.slug)])
 
 
 class RecordDeleteView(DeleteView):
