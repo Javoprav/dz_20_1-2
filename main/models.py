@@ -59,3 +59,7 @@ class Record(models.Model):
     def increase_views(self):    # увеличение количества просмотров
         self.views += 1
         self.save()
+
+    # def delete(self, *args, **kwargs):  # переопределение метода delete
+    #     self.sign_of_publication = False
+    #     self.save()

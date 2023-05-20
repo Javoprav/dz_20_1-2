@@ -24,8 +24,8 @@ class ProductListView(ListView):  # выведение контекста сту
 class RecordListView(ListView):  # выведение контекста записей из модели по ключу object_list
     model = Record
     extra_context = {
-        'object_list': Record.objects.all(),
-        'title': 'Все записи'  # дополнение к статической информации
+        # 'object_list': Record.objects.all(),
+        'title': 'Все записи',  # дополнение к статической информации
     }
 
     def get_queryset(self):  # выводит только активные записи
