@@ -1,6 +1,6 @@
 from django.urls import path
 from main.apps import MainConfig
-from main.views import IndexView, ProductListView, ContactView, ProductDetailView
+from main.views import IndexView, ProductListView, ContactView, ProductDetailView, RecordListView, RecordDetailView
 
 app_name = MainConfig.name
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('contacts/', ContactView.as_view(), name='contacts'),  # Вывод url контакты  из views.py contacts
     path('products/', ProductListView.as_view(), name='products_list'),
     path('product/<int:pk>/', ProductDetailView.as_view(), name='product_item'),  # url студента с переменной, в контроллере(views) так же указывается
+    path('records/', RecordListView.as_view(), name='records_list'),
+    path('records/<slug:slug>/', RecordDetailView.as_view(), name='record_detail')
 ]
