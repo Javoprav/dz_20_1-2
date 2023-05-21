@@ -96,6 +96,12 @@ class ContactView(TemplateView):
         return render(request, self.template_name, context=context)
 
 
+def send_email(request, pk):
+    record_item = get_object_or_404(Record, pk=pk)
+    if record_item.views == 100:
+
+
+
 # def contacts(request):  # в файле request хранится вся инфа от пользователя
 #     if request.method == 'POST':
 #         name = request.POST.get('name')
