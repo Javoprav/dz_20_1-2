@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-
+from main.services import send_email
 from main.models import Product, Record
 
 
@@ -43,6 +43,8 @@ class RecordDetailView(DetailView):
         obj = self.get_object()
         increase = get_object_or_404(Record, pk=obj.pk)  # увеличение количества просмотров
         increase.increase_views()
+        if increase.views == 100:
+            send_email(increase)  # отправка письма
         return context_data
 
 
@@ -94,12 +96,6 @@ class ContactView(TemplateView):
 
         context = {"success": "Сообщение успешно отправлено!"}
         return render(request, self.template_name, context=context)
-
-
-def send_email(request, pk):
-    record_item = get_object_or_404(Record, pk=pk)
-    if record_item.views == 100:
-
 
 
 # def contacts(request):  # в файле request хранится вся инфа от пользователя

@@ -4,9 +4,8 @@ from django.conf import settings
 
 def send_email(record_item):  # отправка письма
     send_mail(
-        '100 просмотров',
-        '100 просмотров! Ура! Теперь надо 1000',
+        f'100 просмотров {record_item}',
+        '100 просмотров накрутил! Ура! Теперь надо 1000!',
         settings.EMAIL_HOST_USER,
-        ['javoprav@gmail.com']
-        # [user.email]
+        ['javoprav@gmail.com'],  # [user.email]
     )

@@ -137,6 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'igor.perov18@yandex.ru'
-EMAIL_HOST_PASSWORD = os.getenv('ya.igor_pass')
+EMAIL_HOST_PASSWORD = os.getenv('ya.pass')
 EMAIL_USE_TLS = False            # у gmail наоборот True
 EMAIL_USE_SSL = True             # у gmail наоборот False
