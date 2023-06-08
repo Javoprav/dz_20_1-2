@@ -1,8 +1,11 @@
+from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from main.forms import ProductForm, VersionForm
 from main.services import send_email
-from main.models import Product, Record
+from main.models import Product, Record, Version
 
 
 class IndexView(TemplateView):
@@ -17,6 +20,7 @@ class ProductListView(ListView):  # выведение контекста сту
     model = Product
     extra_context = {
         'object_list': Product.objects.all(),
+        'version_list': Version.objects.filter(sign_of_publication=True),
         'title': 'Все продукты'  # дополнение к статической информации
     }
 
@@ -69,6 +73,62 @@ class RecordDeleteView(DeleteView):
 
 class ProductDetailView(DetailView):
     model = Product
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['title'] = self.get_object()
+        return context_data
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm  # выводит форму
+    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
+    success_url = reverse_lazy('main:products_list')
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+    template_name = 'main/product_form_with_formset.html'
+    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
+    success_url = reverse_lazy('main:products_list')
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        SubjectFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)  # extra= 2 выведет 2 формы
+        if self.request.method == 'POST':
+            context_data['formset'] = SubjectFormset(self.request.POST)  # instance=self.object выводит ещё одну форму
+        else:
+            context_data['formset'] = SubjectFormset()
+        return context_data
+
+    # def get_success_url(self):
+    #     return reverse('main:product_item', args=[str(self.object.slug)])
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('main:products_list')
+
+
+class VersionListView(ListView):  # выведение контекста версий из модели по ключу object_list
+    model = Version
+    extra_context = {
+        'object_list': Version.objects.filter(sign_of_publication=True),
+        'title': 'Все версии'
+    }
+
+
+class VersionUpdateView(UpdateView):
+    model = Version
+    form_class = VersionForm
+    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
+    success_url = reverse_lazy('main:version_list')
+
+
+class VersionDetailView(DetailView):
+    model = Version
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)

@@ -8,6 +8,7 @@ class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='Наименование')
     description = models.TextField(max_length=15000, verbose_name='Описание', **NULLABLE)
     image = models.ImageField(upload_to='image/', verbose_name='Изображение', **NULLABLE)
+    # slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     # category = models.CharField(max_length=150, verbose_name='Категория')
     category = models.ForeignKey(verbose_name='Категория', to='Category', on_delete=models.CASCADE)
     price_for_pickup = models.IntegerField(verbose_name='Цена за покупку')
@@ -16,6 +17,9 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'  #, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'
+
+    # def get_absolute_url(self):
+    #     return reverse('product_detail', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = 'товар'
@@ -63,3 +67,17 @@ class Record(models.Model):
     # def delete(self, *args, **kwargs):  # переопределение метода delete
     #     self.sign_of_publication = False
     #     self.save()
+
+
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    number = models.IntegerField(unique=True, verbose_name='номер версии')
+    name = models.CharField(max_length=150, verbose_name='Название версии')
+    sign_of_publication = models.BooleanField(default=True, verbose_name='активный')
+
+    def __str__(self):
+        return f'{self.product}'
+
+    class Meta:
+        verbose_name = 'версия'
+        verbose_name_plural = 'версии'

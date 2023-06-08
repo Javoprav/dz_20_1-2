@@ -2,12 +2,13 @@
 <div class="col-lg-4">
     <div class="card m-2 text-center">
         <div class="card-body">
-            <img src="{% mediapath object.image %}" alt="Картинка"  width="200" height="200"/>
+            <img src="{% mediapath object.image %}" alt="Картинка" width="200" height="200"/>
             <h2>{{ object.name|title }} </h2>
             <h6> {{ object.description|slice:":100" }}</h6>  <!--Фильтр slice получает часть списка.-->
             <h4> {{ object.price_for_pickup|title }}</h4>
-            <!-- —ШАБЛОННЫЕ ПЕРЕМЕННЫЕ В заголовок выводятся имена из цикла по ключу -->
             <p><a class="btn btn-secondary" href="{% url 'main:product_item' object.pk %}">Посмотреть &raquo;</a></p>
+            <p><a class="btn btn-warning" href="{% url 'main:product_update' object.pk %}">Изменить &raquo;</a></p>
+            <p><a class="btn btn-danger" href="{% url 'main:product_delete' object.pk %}">Удалить &raquo;</a></p>
         </div>
     </div>
 </div><!-- /.col-lg-4 -->

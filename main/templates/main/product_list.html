@@ -1,6 +1,14 @@
 {% extends 'main/base.html' %} <!-- Выводит базовый html (верхняя, базовая часть сайта) -->
 
 {% block content %}  <!-- ШАБЛОННЫЙ ТЕГ for content -->
+    <div class="col-12">   <!-- кнопка Создать студента -->
+        <a href="{% url 'main:product_create' %}" class="btn btn-primary m-2">Создать продукт</a>
+    </div>
+    {% for version in version_list %}
+        <h6> Активная версия: {{ version.name }}</h6>
+        <h6> Номер версии: {{ version.number }}</h6>
+        <h6> Продукт версии: {{ version.product }}</h6>
+    {% endfor %}
     {% for object in object_list %}
         <!-- ШАБЛОННЫЙ ТЕГ for, цикл по студентам из ключа views.py context object_list -->
         {% include 'main/includes/inc_product_card.html' %} <!-- выводит подшаблон inc_student_card.html -->

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Product, Category, Record
+from main.models import Product, Category, Record, Version
 
 
 @admin.register(Category)
@@ -20,3 +20,10 @@ class RecordAdmin(admin.ModelAdmin):
     list_display = ('id', 'record_title',)
     list_filter = ('record_title',)
     search_fields = ('record_title',)
+
+
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('product', 'number', 'name', 'sign_of_publication',)
+    list_filter = ('sign_of_publication', 'product')
+    search_fields = ('product',)
