@@ -16,15 +16,15 @@ class Command(BaseCommand):
         conn = psycopg2.connect(dbname='postgres', **params)
         conn.autocommit = True
         cur = conn.cursor()
-        try:
-            cur.execute(f"DROP DATABASE project")
-        except psycopg2.errors.InvalidCatalogName:
-            print(f'psycopg2.errors.InvalidCatalogName: ОШИБКА:  база данных project не существует')
-        try:
-            cur.execute(f"CREATE DATABASE project")
-        except psycopg2.errors.DuplicateDatabase:
-            print('ОШИБКА:  отношение "main_category" не существует')
-        conn.close()
+        # try:
+        #     cur.execute(f"DROP DATABASE project")
+        # except psycopg2.errors.InvalidCatalogName:
+        #     print(f'psycopg2.errors.InvalidCatalogName: ОШИБКА:  база данных project не существует')
+        # try:
+        #     cur.execute(f"CREATE DATABASE project")
+        # except psycopg2.errors.DuplicateDatabase:
+        #     print('ОШИБКА:  отношение "main_category" не существует')
+        # conn.close()
 
         # if Category.objects.all():
         #     category_list_all = Category.objects.all()

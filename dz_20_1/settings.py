@@ -79,9 +79,10 @@ WSGI_APPLICATION = 'dz_20_1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': os.getenv('bd_pass')
+        # 'PASSWORD': '12345'
+        # 'PASSWORD': os.getenv('bd_pass')
     }
 }
 

@@ -11,16 +11,16 @@ from main.models import Product, Category, Record
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        params = config()
-        conn = psycopg2.connect(dbname='postgres', **params)
-        conn.autocommit = True
-        cur = conn.cursor()
-
-        try:
-            cur.execute(f"CREATE DATABASE project")
-        except psycopg2.errors.DuplicateDatabase:
-            print('ОШИБКА:  отношение "main_category" не существует')
-        conn.close()
+        # params = config()
+        # conn = psycopg2.connect(dbname='postgres', **params)
+        # conn.autocommit = True
+        # cur = conn.cursor()
+        #
+        # try:
+        #     cur.execute(f"CREATE DATABASE project")
+        # except psycopg2.errors.DuplicateDatabase:
+        #     print('ОШИБКА:  отношение "main_category" не существует')
+        # conn.close()
 
         try:
             os.system("python manage.py migrate")
