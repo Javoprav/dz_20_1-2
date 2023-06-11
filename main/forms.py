@@ -1,5 +1,6 @@
 from django import forms
 
+import dz_20_1.settings
 from main.models import Product, Record, Version
 
 
@@ -19,10 +20,9 @@ class ProductForm(FormStyleMixin, forms.ModelForm):  # импорт форм в 
         # fields = ('', '')
         # exclude = ('is_active', )  # исключает поле из формы
 
-    def clean_name(self):    # валидация на почту
-        stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
+    def clean_name(self):    # валидация на слова
         cleaned_data = self.cleaned_data['name']
-        for word in stop_words:
+        for word in dz_20_1.settings.STOP_WORDS:
             if word in cleaned_data:
                 raise forms.ValidationError(f'Запрещенная тематика "{word}"')
         return cleaned_data

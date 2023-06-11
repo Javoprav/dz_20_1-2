@@ -82,8 +82,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(CreateView):
     model = Product
-    form_class = ProductForm  # выводит форму
-    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
+    form_class = ProductForm
     success_url = reverse_lazy('main:products_list')
 
 
@@ -91,7 +90,6 @@ class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'main/product_form_with_formset.html'
-    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
     success_url = reverse_lazy('main:products_list')
 
     def get_context_data(self, **kwargs):
@@ -103,16 +101,14 @@ class ProductUpdateView(UpdateView):
             context_data['formset'] = SubjectFormset()
         return context_data
 
-    # def get_success_url(self):
-    #     return reverse('main:product_item', args=[str(self.object.slug)])
-
 
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('main:products_list')
 
 
-class VersionListView(ListView):  # выведение контекста версий из модели по ключу object_list
+class VersionListView(ListView):
+    """# выведение контекста версий из модели по ключу object_list"""
     model = Version
     extra_context = {
         'object_list': Version.objects.filter(sign_of_publication=True),
@@ -123,8 +119,7 @@ class VersionListView(ListView):  # выведение контекста вер
 class VersionUpdateView(UpdateView):
     model = Version
     form_class = VersionForm
-    # fields = ('name', 'description', 'image', 'category', 'price_for_pickup')
-    success_url = reverse_lazy('main:version_list')
+    success_url = reverse_lazy('main:products_list')
 
 
 class VersionDetailView(DetailView):
@@ -143,7 +138,7 @@ class ContactView(TemplateView):
     }
 
     def post(self, request, *args, **kwargs):
-        # получение данных из формы
+        """Получение данных из формы"""
         name = request.POST.get('name', '')
         email = request.POST.get('email', '')
         message = request.POST.get('message', '')
@@ -156,55 +151,3 @@ class ContactView(TemplateView):
 
         context = {"success": "Сообщение успешно отправлено!"}
         return render(request, self.template_name, context=context)
-
-
-# def contacts(request):  # в файле request хранится вся инфа от пользователя
-#     if request.method == 'POST':
-#         name = request.POST.get('name')
-#         email = request.POST.get('email')
-#         message = request.POST.get('message')
-#         print(f'name {name}, email {email}, message {message}')
-#
-#     context = {
-#         'title': 'Контакты'
-#     }
-#     return render(request, 'main/contact.html', context)  # шаблон main/contact.html
-
-
-# def index(request):
-#     # ШАБЛОННЫЕ ПЕРЕМЕННЫЕ
-#     context = {
-#         'object_list': Product.objects.all(),   # выведение контекста студентов из модели по ключу object_list
-#         'title': 'Главная'
-#     }
-#     return render(request, 'main/index.html', context)
-
-# def products(request):
-#     # ШАБЛОННЫЕ ПЕРЕМЕННЫЕ
-#     context = {
-#         'object_list': Product.objects.all(),
-#         'title': 'Все товары'
-#     }
-#     return render(request, 'main/product_list.html', context)
-
-# def product(request, pk):
-#     product_item = Product.objects.get(pk=pk)
-#     context = {
-#         'objects': product_item,
-#         'title': product_item,
-#     }
-#     return render(request, 'main/product_detail.html', context)
-
-# class ContactView(TemplateView):
-#     template_name = 'main/contact.html'
-#     extra_context = {
-#         'title': 'Контакты'
-#     }
-#
-#     def get_context_data(self, **kwargs):
-#         if self.request.method == 'POST':
-#             name = self.request.POST.get('name')
-#             email = self.request.POST.get('email')
-#             message = self.request.POST.get('message')
-#             print(f'You have new message from {name}({email}): {message}')
-#         return super().get_context_data(**kwargs)

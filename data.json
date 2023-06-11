@@ -1,80 +1,653 @@
 [
   {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-06-08T12:08:58.515Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Version 1",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add категория",
+      "content_type": 7,
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change категория",
+      "content_type": 7,
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete категория",
+      "content_type": 7,
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view категория",
+      "content_type": 7,
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add товар",
+      "content_type": 8,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change товар",
+      "content_type": 8,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete товар",
+      "content_type": 8,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view товар",
+      "content_type": 8,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add запись",
+      "content_type": 9,
+      "codename": "add_record"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change запись",
+      "content_type": 9,
+      "codename": "change_record"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete запись",
+      "content_type": 9,
+      "codename": "delete_record"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view запись",
+      "content_type": 9,
+      "codename": "view_record"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add версия",
+      "content_type": 10,
+      "codename": "add_version"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change версия",
+      "content_type": 10,
+      "codename": "change_version"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete версия",
+      "content_type": 10,
+      "codename": "delete_version"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view версия",
+      "content_type": 10,
+      "codename": "view_version"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$3folj7IG3uK3rYO6FKyXia$XuP7+wDsuCqA2NWcdUP3hjo+rC6fQ5KUPBYqBEkEtTo=",
+      "last_login": "2023-06-08T11:30:51.287Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-06-08T11:30:45.512Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "main",
+      "model": "category"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "main",
+      "model": "product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "main",
+      "model": "record"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "main",
+      "model": "version"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jffqls015i535fo7mcb6ikryas2y527b",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGllJ1l9Kes5grb1rHEC2FCcV4u4QKQW0b2beSwTc1hK2zkuYSZzFKE6_W8T04LoDumO9NZlaXZc5yl2RB-3y2oifl8P9OyjYy7dG67VNWQM4AGtg4GSMztahd5kzOUWJvfU5x0gDTZNFBwxGu5EJlBLvD-IWOAE:1q7Dqt:qFopyGD0BHij5RRqwNm0XL1v6r0A-xSiEbsGS78jRX0",
+      "expire_date": "2023-06-22T11:30:51.292Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+      "name": "Беговая дорожка UNIX Fit ST-530M, черный",
+      "description": "Беговые дорожки торговой марки UNIXFIT™ серии ST – это надежность и компактность. Они сочетают в себе все основные функции, необходимые для успешной тренировки. Модель UNIXFIT ST-530M имеет, пожалуй, самый большой угол наклона бегового полотна среди моделей с механической регулировкой. Максимальная скорость бега на данной модели составляет 12 км/ч, 14 программ тренировки и удобная панель управления с быстрыми кнопками переключения скорости и информативным LCD дисплеем с голубой подсветкой - все что нужно для хорошей тренировки. К уникальным особенностям беговой дорожки UNIXFIT ST-530M также можно отнести компактность как в сложенном виде, так и в рабочем состоянии.",
+      "image": "image/thg.jpg",
+      "category": 2,
+      "price_for_pickup": 32490,
+      "date_of_creation": "2023-06-08T08:59:23.490Z",
+      "last_modified_date": "2023-06-08T08:59:23.490Z"
+    }
+  },
+  {
     "model": "main.product",
     "pk": 2,
     "fields": {
-      "name": "┴хуютр  фюЁюцър UNIX Fit ST-530M, ўхЁэ√щ",
-      "description": "┴хуют√х фюЁюцъш ЄюЁуютющ ьрЁъш UNIXFITЩ ёхЁшш ST Ц ¤Єю эрфхцэюёЄ№ ш ъюьяръЄэюёЄ№. ╬эш ёюўхЄр■Є т ёхсх тёх юёэютэ√х ЇєэъЎшш, эхюсїюфшь√х фы  єёях°эющ ЄЁхэшЁютъш. ╠юфхы№ UNIXFIT ST-530M шьххЄ, яюцрыєщ, ёрь√щ сюы№°ющ єуюы эръыюэр схуютюую яюыюЄэр ёЁхфш ьюфхыхщ ё ьхїрэшўхёъющ ЁхуєышЁютъющ. ╠ръёшьры№эр  ёъюЁюёЄ№ схур эр фрээющ ьюфхыш ёюёЄрты хЄ 12 ъь/ў, 14 яЁюуЁрьь ЄЁхэшЁютъш ш єфюсэр  ярэхы№ єяЁртыхэш  ё с√ёЄЁ√ьш ъэюяърьш яхЁхъы■ўхэш  ёъюЁюёЄш ш шэЇюЁьрЄштэ√ь LCD фшёяыххь ё уюыєсющ яюфётхЄъющ - тёх ўЄю эєцэю фы  їюЁю°хщ ЄЁхэшЁютъш. ╩ єэшъры№э√ь юёюсхээюёЄ ь схуютющ фюЁюцъш UNIXFIT ST-530M Єръцх ьюцэю юЄэхёЄш ъюьяръЄэюёЄ№ ъръ т ёыюцхээюь тшфх, Єръ ш т Ёрсюўхь ёюёЄю эшш.",
-      "image": "image/th_tYR7LDr.jfif",
-      "category": 2,
-      "price_for_pickup": 32490,
-      "date_of_creation": "2023-05-07T06:25:18.655Z",
-      "last_modified_date": "2023-05-07T06:25:18.655Z"
+      "name": "Велотренажер Hasttings WEGA S300",
+      "description": "Супермощная нагрузка Wega S300 порадует опытных пользователей, ведь количество уровней сопротивления в данной модели 32 ступени! Широкие педали позволяют обеспечить комфортное положение стопы тренировок с разным уровнем интенсивности.",
+      "image": "image/thg.jpg",
+      "category": 1,
+      "price_for_pickup": 59000,
+      "date_of_creation": "2023-06-08T08:59:23.491Z",
+      "last_modified_date": "2023-06-08T08:59:23.491Z"
     }
   },
   {
     "model": "main.product",
     "pk": 3,
     "fields": {
-      "name": "┬хыюЄЁхэрцхЁ Hasttings WEGA S300",
-      "description": "╤єяхЁью∙эр  эруЁєчър Wega S300 яюЁрфєхЄ юя√Єэ√ї яюы№чютрЄхыхщ, тхф№ ъюышўхёЄтю єЁютэхщ ёюяЁюЄштыхэш  т фрээющ ьюфхыш 32 ёЄєяхэш! ╪шЁюъшх яхфрыш яючтюы ■Є юсхёяхўшЄ№ ъюьЇюЁЄэюх яюыюцхэшх ёЄюя√ ЄЁхэшЁютюъ ё Ёрчэ√ь єЁютэхь шэЄхэёштэюёЄш.",
+      "name": "эллиптический тренажер Matrix A50XIR",
+      "description": "Длина шага: 51 - 61 см\n\nМакс. вес пользователя: 159 кг\n\nМаховик: -\n\nСкладывание: нет\n\nГабариты (ДхШхВ): 190х75х165 см\n\nВес тренажера: 146 кг",
       "image": "image/thg.jpg",
-      "category": 1,
-      "price_for_pickup": 59000,
-      "date_of_creation": "2023-05-07T06:28:27.499Z",
-      "last_modified_date": "2023-05-07T06:28:27.500Z"
-    }
-  },
-  {
-    "model": "main.product",
-    "pk": 4,
-    "fields": {
-      "name": "¤ыышяЄшўхёъшщ ЄЁхэрцхЁ Matrix A50XIR",
-      "description": "─ышэр °рур: 51 - 61 ёь\n\n╠ръё. тхё яюы№чютрЄхы : 159 ъу\n\n╠рїютшъ: -\n\n╤ъырф√трэшх: эхЄ\n\n├рсрЁшЄ√ (─ї╪ї┬): 190ї75ї165 ёь\n\n┬хё ЄЁхэрцхЁр: 146 ъу",
-      "image": "image/th_tYR7LDr.jfif",
       "category": 4,
       "price_for_pickup": 499990,
-      "date_of_creation": "2023-05-07T06:25:18.655Z",
-      "last_modified_date": "2023-05-07T06:25:18.655Z"
+      "date_of_creation": "2023-06-08T08:59:23.491Z",
+      "last_modified_date": "2023-06-08T08:59:23.491Z"
     }
   },
   {
     "model": "main.product",
     "pk": 5,
     "fields": {
-      "name": "ёЄхяяхЁ DFC SC-S5901",
-      "description": "─юьр°эшщ ёЄхяяхЁ DFC SC-5901 ёю ёЄющъющ ш єфюсэ√ь яюЁєўэхь....",
+      "name": "степпер DFC SC-S5911541",
+      "description": "со стойкой и удобным поручнем....",
       "image": "image/thg.jpg",
       "category": 3,
-      "price_for_pickup": 59000,
-      "date_of_creation": "2023-05-07T06:28:27.499Z",
-      "last_modified_date": "2023-05-07T06:28:27.500Z"
+      "price_for_pickup": 594000,
+      "date_of_creation": "2023-06-08T08:59:23.491Z",
+      "last_modified_date": "2023-06-08T08:59:23.491Z"
     }
   },
   {
     "model": "main.product",
     "pk": 6,
     "fields": {
-      "name": "ёЄхяяхЁ DFC SC-S5911541",
-      "description": "ёю ёЄющъющ ш єфюсэ√ь яюЁєўэхь....",
-      "image": "image/thg.jpg",
-      "category": 3,
-      "price_for_pickup": 594000,
-      "date_of_creation": "2023-05-07T06:28:27.499Z",
-      "last_modified_date": "2023-05-07T06:28:27.500Z"
-    }
-  },
-  {
-    "model": "main.product",
-    "pk": 7,
-    "fields": {
-      "name": "ёЄхяяхЁ DFC SC-S59fhf01",
-      "description": "─юьр°эшщ ёЄхяяхЁ DFC SC-590sdgth1 ёю ёЄющъющ ш єфюсэ√ь яюЁєўэхь....",
+      "name": "степпер DFC SC-S59fhf01",
+      "description": "Домашний степпер DFC SC-590sdgth1 со стойкой и удобным поручнем....",
       "image": "image/thg.jpg",
       "category": 3,
       "price_for_pickup": 5000,
-      "date_of_creation": "2023-05-07T06:28:27.499Z",
-      "last_modified_date": "2023-05-07T06:28:27.500Z"
+      "date_of_creation": "2023-06-08T08:59:23.491Z",
+      "last_modified_date": "2023-06-08T08:59:23.491Z"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 1,
+    "fields": {
+      "name": "Велотренажеры",
+      "description": "Велотренажеры"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 2,
+    "fields": {
+      "name": "Беговые дорожки",
+      "description": "Беговые дорожки"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 3,
+    "fields": {
+      "name": "Степперы",
+      "description": "Степперы"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 4,
+    "fields": {
+      "name": "Элипсы",
+      "description": "Элипсы"
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 1,
+    "fields": {
+      "record_title": "Slug",
+      "slug": "Slug",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/dfhdfgh_uUCVxP4.jpg",
+      "date_of_creation": "2023-06-08T08:59:52.641Z",
+      "sign_of_publication": false,
+      "views": 9
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 2,
+    "fields": {
+      "record_title": "Not Slug",
+      "slug": "Not_Slug",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/thhhtdg_FH7vYOw.jpg",
+      "date_of_creation": "2023-06-08T08:59:52.641Z",
+      "sign_of_publication": false,
+      "views": 6
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 3,
+    "fields": {
+      "record_title": "new",
+      "slug": "new",
+      "content": "Slug - ўхыютхъюяюэ Єэ√щ URL, яЁхфёЄрты хЄ ёюсющ эрсюЁ ёшьтюыют, ъюЄюЁ√х ьюцэю яЁюўшЄрЄ№ ъръ ёт чэ√х ёыютр шыш яЁхфыюцхэш  т рфЁхёэющ ёЄЁюъх, ъюЄюЁ√щ ёыєцшЄ єэшъры№э√ь шфхэЄшЇшърЄюЁюь чряшёш т Ёрьърї юфэющ ьюфхыш ш ёюёЄюшЄ шч схчюярёэ√ї фы  юсЁрсюЄъш чряЁюёр ёшьтюыют:\r\n\r\n0-9\r\na-z\r\n (юс√ўэю т эшцэхь ЁхушёЄЁх)\r\nёшьтюы \r\n-",
+      "preview": "image/one_proxima_4287_enlh4_knwvZbF.jpg",
+      "date_of_creation": "2023-06-08T14:30:09.951Z",
+      "sign_of_publication": true,
+      "views": 5
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 4,
+    "fields": {
+      "record_title": "new_4",
+      "slug": "new_4",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n\r\nAn example:\r\n\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of this very web page for another example.",
+      "preview": "image/one_proxima_4287_enlh4_pT3FxvY.jpg",
+      "date_of_creation": "2023-06-08T08:59:52.641Z",
+      "sign_of_publication": true,
+      "views": 5
+    }
+  },
+  {
+    "model": "main.record",
+    "pk": 5,
+    "fields": {
+      "record_title": "new_5",
+      "slug": "new_5",
+      "content": "A \"slug\" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL. I advise to generate the slug by means of a function, given the title (or another piece of data), rather than setting it manually.\r\n<title> The 46 Year Old Virgin </title>\r\n<content> A silly comedy movie </content>\r\n<slug> the-46-year-old-virgin </slug>\r\nNow let's pretend that we have a Django model such as:\r\n\r\nclass Article(models.Model):\r\n    title = models.CharField(max_length=100)\r\n    content = models.TextField(max_length=1000)\r\n    slug = models.SlugField(max_length=40)\r\nHow would you reference this object with a URL and with a meaningful name? You could for instance use Article.id so the URL would look like this:\r\n\r\nwww.example.com/article/23\r\nOr, you might want to reference the title like this:\r\n\r\nwww.example.com/article/The 46 Year Old Virgin\r\nSince spaces aren't valid in URLs, they must be replaced by %20, which results in:\r\n\r\nwww.example.com/article/The%2046%20Year%20Old%20Virgin\r\nBoth attempts are not resulting in very meaningful, easy-to-read URL. This is better:\r\n\r\nwww.example.com/article/the-46-year-old-virgin\r\nIn this example, the-46-year-old-virgin is a slug: it is created from the title by down-casing all letters, and replacing spaces by hyphens -.\r\n\r\nAlso see the URL of.",
+      "preview": "image/dfhdfgh_LqAmTcd.jpg",
+      "date_of_creation": "2023-06-08T08:59:52.641Z",
+      "sign_of_publication": true,
+      "views": 7
+    }
+  },
+  {
+    "model": "main.version",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "number": 1,
+      "name": "Version 1",
+      "sign_of_publication": true
     }
   }
 ]

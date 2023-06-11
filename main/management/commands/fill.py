@@ -12,30 +12,23 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        params = config()
-        conn = psycopg2.connect(dbname='postgres', **params)
-        conn.autocommit = True
-        cur = conn.cursor()
-        try:
-            cur.execute(f"DROP DATABASE postgres")
-        except psycopg2.errors.InvalidCatalogName:
-            print(f'psycopg2.errors.InvalidCatalogName: ОШИБКА:  база данных project не существует')
-        try:
-            cur.execute(f"CREATE DATABASE postgres")
-        except psycopg2.errors.DuplicateDatabase:
-            print('ОШИБКА:  отношение "main_category" не существует')
-        conn.close()
+        # params = config()
+        # conn = psycopg2.connect(**params)
+        # conn.autocommit = True
+        # cur = conn.cursor()
 
-        # if Category.objects.all():
-        #     category_list_all = Category.objects.all()
-        #     category_list_all.delete()
-
-        # if Product.objects.all():
-        #     product_list_all = Product.objects.all()
-        #     product_list_all.delete()
+        # try:
+        #     cur.execute(f"DROP DATABASE dz_django")
+        # except psycopg2.errors.InvalidCatalogName:
+        #     print(f'psycopg2.errors.InvalidCatalogName: ОШИБКА:  база данных project не существует')
+        # try:
+        #     cur.execute(f"CREATE DATABASE dz_django")
+        # except psycopg2.errors.DuplicateDatabase:
+        #     print('ОШИБКА:  отношение "main_category" не существует')
+        # conn.close()
 
         os.system("python manage.py migrate")
-        # os.system("python manage.py loaddata category.json")   # Windows-1251
+        # os.system("python manage.py loaddata data.json")
 
         with open('category.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
