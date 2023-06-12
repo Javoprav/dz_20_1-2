@@ -138,8 +138,11 @@ STOP_WORDS = ['казино', 'криптовалюта', 'крипта', 'би�
 
 EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
 EMAIL_HOST_USER = 'igor.perov18@yandex.ru'
-EMAIL_HOST_PASSWORD = os.getenv('ya.pass')
+EMAIL_HOST_PASSWORD = 'kaazcskwvpvhdnnt'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
