@@ -1,5 +1,4 @@
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm, PasswordResetForm, \
-    SetPasswordForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django import forms
 from main.forms import FormStyleMixin
 from users.models import User
@@ -20,15 +19,3 @@ class UserRegisterForm(FormStyleMixin, UserCreationForm):  # форма реги
     class Meta:
         model = User
         fields = ('email', 'password1', 'password2', 'country',)
-
-
-class CustomPasswordChangeForm(FormStyleMixin, PasswordChangeForm):
-    pass
-
-
-class CustomPasswordResetForm(FormStyleMixin, PasswordResetForm):
-    pass
-
-
-class CustomSetPasswordForm(FormStyleMixin, SetPasswordForm):
-    pass

@@ -14,6 +14,7 @@ class Product(models.Model):
     price_for_pickup = models.IntegerField(verbose_name='Цена за покупку')
     date_of_creation = models.DateTimeField(auto_now=True, verbose_name='Дата создания')
     last_modified_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата последнего изменения')
+    user = models.CharField(max_length=50, verbose_name='Создатель', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'  #, {self.category}, {self.price_for_pickup}, {self.date_of_creation}, {self.last_modified_date}'

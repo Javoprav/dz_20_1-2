@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
@@ -60,7 +61,7 @@ class RecordCreateView(CreateView):
 
 class RecordUpdateView(UpdateView):
     model = Record
-    fields = ('record_title', 'slug', 'content', 'preview')
+    fields = ('record_title', 'slug', 'content', 'preview',)
 
     def get_success_url(self):
         return reverse('main:record_detail', args=[str(self.object.slug)])
@@ -80,10 +81,14 @@ class ProductDetailView(DetailView):
         return context_data
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):  # LoginRequiredMixin требует авторизацию
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('main:products_list')
+
+    def form_valid(self, form):           # добавление создателя
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ProductUpdateView(UpdateView):

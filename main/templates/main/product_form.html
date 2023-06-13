@@ -3,13 +3,16 @@
 {% block content %}  <!-- ШАБЛОННЫЙ ТЕГ for content -->
     <div class="col">
         <div class="card">
-            <div class="card-body">
-                <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" class="btn btn-success"
-                           value="{% if object %}Сохранить{% else %} Создать {% endif %}">
-                </form>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="card-body">
+                    <form action="" enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-success"
+                               value="{% if object %}Сохранить{% else %} Создать {% endif %}">
+                    </form>
+                </div>
+            {% endif %}
             <div class="card-footer">
                 <a href="{% url 'main:products_list' %}" class="btn btn-primary"><< Назад</a>
             </div>
