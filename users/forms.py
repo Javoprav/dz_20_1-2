@@ -12,6 +12,7 @@ class UserForm(FormStyleMixin, UserChangeForm):  # форма изменения
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # print(self.fields['password'])
         self.fields['password'].widget = forms.HiddenInput()  # скрывает password при заполнении
 
 

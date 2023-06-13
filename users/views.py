@@ -1,8 +1,12 @@
 import secrets
 
+from django.contrib.auth.hashers import make_password
+from django.core.mail import send_mail
 from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, CreateView
+
+from dz_20_1 import settings
 from services.confirm_account import confirm_account
 from users.forms import UserForm, UserRegisterForm
 from users.models import User
@@ -13,7 +17,7 @@ class ProfileUpdateView(UpdateView):
     form_class = UserForm
     success_url = reverse_lazy('users:profile')
 
-    def get_object(self, queryset=None):
+    def get_object(self, queryset=None): # редактировние текущего пользователя (без pk)
         return self.request.user
 
 
@@ -53,3 +57,17 @@ def activate_user(request, token):
         user.save()
         return redirect('users:login')
     return render(request, 'users/user_not_found.html')
+
+
+def generate_new_password(request):
+    pass_ch = secrets.token_urlsafe(18)[:9]
+    send_mail(
+        subject='Смена пароля',
+        message=f'Ваш новый пароль {pass_ch}',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[request.user.email]
+    )
+    # print(pass_ch)
+    request.user.set_password(pass_ch)
+    request.user.save()
+    return redirect(reverse('users:login'))
