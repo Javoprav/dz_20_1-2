@@ -13,14 +13,14 @@ class IndexView(TemplateView):
     template_name = 'main/index.html'
     extra_context = {
         'title': 'Главная страница',
-        'object_list': Product.objects.all()
+        'object_list': Product.objects.filter(status='Активна')
     }
 
 
 class ProductListView(ListView):  # выведение контекста студентов из модели по ключу object_list
     model = Product
     extra_context = {
-        'object_list': Product.objects.all(),
+        'object_list': Product.objects.filter(status='Активна'),
         'version_list': Version.objects.filter(sign_of_publication=True),
         'title': 'Все продукты'  # дополнение к статической информации
     }

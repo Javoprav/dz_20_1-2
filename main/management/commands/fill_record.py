@@ -26,10 +26,6 @@ class Command(BaseCommand):
             os.system("python manage.py migrate")
         except Exception:
             print('ОШИБКА:  Не правильная команда')
-        try:
-            os.system("python3 manage.py migrate")
-        except Exception:
-            print('ОШИБКА:  Не правильная команда')
 
         with open('data_record_1.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
