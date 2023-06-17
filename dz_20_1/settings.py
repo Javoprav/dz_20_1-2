@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR / '.env')       # подтягивание переменных окружения из .env
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -81,8 +83,9 @@ WSGI_APPLICATION = 'dz_20_1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dz_django',
-        'USER': 'postgres',
+        'NAME': os.getenv("NAME_POSTGRES"),
+        # HOST  -- по умолчанию на 127.0.0.1 или unix socet
+        'USER': os.getenv('USER_POSTGRES'),
         # 'PASSWORD': os.getenv('bd_pass')
     }
 }
@@ -137,17 +140,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STOP_WORDS = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
 
-EMAIL_HOST = 'smtp.yandex.com'
-EMAIL_PORT = 465
-
 # EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 # EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-EMAIL_HOST_USER = 'igor.perov18@yandex.ru'
-EMAIL_HOST_PASSWORD = 'kaazcskwvpvhdnnt'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")      # берет из .env
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")      # берет из .env
+EMAIL_USE_TLS = False            # у gmail наоборот True
+EMAIL_USE_SSL = True             # у gmail наоборот False
 
-AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'users.User'  # переопределяет авторизацию
+LOGIN_REDIRECT_URL = '/'  # перенаправление login
+LOGOUT_REDIRECT_URL = '/'  # перенаправление logout
+LOGIN_URL = '/users/'  # вход login_url='/users/'
+
+CACHE_ENABLED = os.getenv("CACHE_ENABLED") == 'True'    # берет из .env
+CACHES = {  # подключение redis
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        # "LOCATION": "redis://127.0.0.1:6379",
+        "LOCATION": os.getenv("CACHE_LOCATION"),     # берет из .env
+    }
+}

@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -65,6 +66,12 @@ class RecordUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('main:record_detail', args=[str(self.object.slug)])
+
+    def get_object(self, queryset=None):     # продукт должен редактировать только владелец
+        self.object = super().get_object(queryset)
+        if self.object.user != self.request.user:
+            raise Http404("Вы не являетесь владельцем этого товара")
+        return self.object
 
 
 class RecordDeleteView(DeleteView):
