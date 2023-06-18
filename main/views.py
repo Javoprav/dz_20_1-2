@@ -6,8 +6,8 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from main.forms import ProductForm, VersionForm
-from main.services import send_email
-from main.models import Product, Record, Version
+from main.services import send_email, get_category_subjects
+from main.models import Product, Record, Version, Category
 
 
 class IndexView(TemplateView):
@@ -16,6 +16,19 @@ class IndexView(TemplateView):
         'title': 'Главная страница',
         'object_list': Product.objects.filter(status='Активна')
     }
+
+
+class CategoriesListView(ListView):
+    model = Category
+    extra_context = {
+        'title': 'Все категории',
+        'object_list': Category.objects.all()
+    }
+
+    def get_context_data(self, **kwargs):   # меняет title на __str__.object (имя студента)
+        context_data = super().get_context_data(**kwargs)
+        context_data['subject_list'] = get_category_subjects    # логика вынесена в services.py ---------
+        return context_data
 
 
 class ProductListView(ListView):  # выведение контекста студентов из модели по ключу object_list
